@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+:root {
+    --header-width: 12vh;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 25px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    background-color: #1af57520;
+    margin-top: var(--header-width);
+    margin-left: 1vw;
+}
+
+header {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(var(--header-width) * 0.8);
+    margin: 0;
+    background-color: #A80C00;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+.page-header {
+    margin: 0;
+    font-weight: bolder;
+}
+
+.to-do {
+    text-decoration: underline #09A84C;
+}
+
+
+.submit {
+    display: block;
+    min-width: 50px;
+    min-height: 35px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #A80C00;
+    color: white;
+}
