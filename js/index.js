@@ -1,31 +1,36 @@
 // Constants
-const rawAnswers = document.getElementById('raw-answers')
-const submitRawAnswers = document.getElementById('submit-raw-answers')
+const rawAnswers = document.getElementById('raw-answers')   // Textarea
+const submitRawAnswers = document.getElementById('submit-raw-answers')  // Submit Button
 
 
+// Separates the answer by student
 function answersByStudent(answersString='') {
     return answersString.split('\n')
 }
 
-function separateAnswers(answersArr=[]) {
+// Separates every students' answers (into an array of arrays)
+const answersRegEx = /(?<="),(?=")/
+function getAnswers(answersArr=[]) {
+    // For now, we discard the column headers (first row)
     answersArr.shift()
-    answersArr.forEach((string, index) => { 
-        answersArr[index] = string.split('"').filter(answer => {
-            if (answer.length > 0) {
-                if (answer[0] != ',') {
-                    return answer
-                }
-            }
+
+    // Separate the strings into arrays and delete the leading and ending ""
+    let separetedAnswers
+    answersArr = answersArr.map(string => {
+        separetedAnswers = string.split(answersRegEx)
+        separetedAnswers = separetedAnswers.map(answer => {
+            return answer.slice(1, answer.length - 1)
         })
+        return separetedAnswers
     })
-    answersArr = answersArr
     return answersArr
 }
 
+// Analyse the results
 function analyse() {
     let answersString = rawAnswers.value
     let answersArr = answersByStudent(answersString)
-    answersArr = separateAnswers(answersArr)
+    answersArr = getAnswers(answersArr)
     console.log(answersArr[0])
 }
 
