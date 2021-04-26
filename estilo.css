@@ -38,6 +38,9 @@ header {
 .to-do {
     text-decoration: underline #09A84C;
 }
+.results {
+    text-decoration: underline #00a80e;
+}
 
 
 .submit {
@@ -48,4 +51,29 @@ header {
     border-radius: 5px;
     background-color: #A80C00;
     color: white;
+}
+
+
+.table-container {
+    width: 100%;
+    overflow: auto;
+}
+
+
+table {
+    border-collapse: collapse;
+}
+table tr {
+    margin: 0;
+    border-bottom: 2px solid black;
+}
+table tr:last-child {
+    border: none
+}
+tr th, td {
+    padding: 5px;
+    border-right: 1px solid gray;
+}
+tr th:last-child, td:last-child {
+    border: none
 }
